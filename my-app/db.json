@@ -1,0 +1,169 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "",
+      "author": "",
+      "id": 2
+    },
+    {
+      "title": "",
+      "author": "",
+      "id": 3
+    },
+    {
+      "title": "",
+      "author": "",
+      "id": 4
+    },
+    {
+      "title": "",
+      "author": "",
+      "id": 5
+    },
+    {
+      "title": "ws",
+      "author": "sss",
+      "id": 6
+    },
+    {
+      "title": "",
+      "author": "",
+      "id": 7
+    },
+    {
+      "title": "",
+      "author": "",
+      "id": 8
+    },
+    {
+      "title": "",
+      "author": "",
+      "id": 9
+    },
+    {
+      "title": "",
+      "author": "",
+      "id": 10
+    },
+    {
+      "title": "",
+      "author": "",
+      "id": 11
+    },
+    {
+      "title": "",
+      "author": "",
+      "id": 12
+    },
+    {
+      "title": "sssss",
+      "author": "sssssss",
+      "id": 13
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 14
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 15
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 16
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 17
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 18
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 19
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 20
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 21
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 22
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 23
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 24
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 25
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 26
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 27
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 28
+    },
+    {
+      "title": "srikanth",
+      "author": "mothkuri",
+      "id": 29
+    },
+    {
+      "title": "sws",
+      "author": "asas",
+      "id": 30
+    },
+    {
+      "title": "sws12",
+      "author": "asas",
+      "id": 31
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

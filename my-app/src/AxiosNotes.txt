@@ -1,0 +1,58 @@
+
+import axios,{AxiosError, AxiosResponse} from "axios"
+
+interface Iprops{
+  fname:string
+}
+
+// export interface AxiosResponse<T = any, D = any> {
+//   data: T;
+//   status: number;
+//   statusText: string;
+//   headers: RawAxiosResponseHeaders | AxiosResponseHeaders;
+//   config: InternalAxiosRequestConfig<D>;
+//   request?: any;
+// }
+
+// what exactly axios response contains  Promise<AxiosResponse></AxiosResponse>
+{
+    // `data` is the response that was provided by the server
+    data: {},
+    // `status` is the HTTP status code from the server response
+    status: 200,
+    // `statusText` is the HTTP status message from the server response
+    // As of HTTP/2 status text is blank or unsupported.
+    // (HTTP/2 RFC: https://www.rfc-editor.org/rfc/rfc7540#section-8.1.2.4)
+    statusText: 'OK',
+    // `headers` the HTTP headers that the server responded with
+    // All header names are lower cased and can be accessed using the bracket notation.
+    // Example: `response.headers['content-type']`
+    headers: {},
+    // `config` is the config that was provided to `axios` for the request
+    config: {},
+    // `request` is the request that generated this response
+    // It is the last ClientRequest instance in node.js (in redirects)
+    // and an XMLHttpRequest instance in the browser
+    request: {}
+  } 
+
+//errors 
+//.catch(function (error) {
+  // if (error.response) {
+  //   // The request was made and the server responded with a status code
+  //   // that falls out of the range of 2xx
+  //   console.log(error.response.data);
+  //   console.log(error.response.status);
+  //   console.log(error.response.headers);  
+// without type declaration
+const data = axios.get("http://localhost:3000/products") //return type is Promise<AxiosResponse<any, any>>
+const data1 = axios.get("http://localhost:3000/products").then((data)=>data)// rt is Promise<AxiosResponse<any, any>>
+const data2 = axios.get("http://localhost:3000/products").then(({data})=>data) // Promise<any>
+
+// with type declarion 
+const data00 =  axios.get<Iprops>("http://localhost:3000/products") //const data00: Promise<AxiosResponse<Iprops, any>>
+const data11 =  axios.get<Iprops>("http://localhost:3000/products").then((data)=>data)//return type is -Promise<AxiosResponse<Iprops, any>>
+const data22 =  axios.get<Iprops>("http://localhost:3000/products").then(({data})=>data) // return type is Promise<Iprops>
+
+//errors 
+const dataError = axios.get<AxiosError>("http://localhost:3000/products").catch((err)=>err.response)//return type is -Promise<AxiosResponse<Iprops, any>>

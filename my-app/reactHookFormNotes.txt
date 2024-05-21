@@ -1,0 +1,79 @@
+react hook form is react library 
+
+zod is ts first library used to do validation (validation library, zod provides excellen type checking and type inference for ur validation schemas)
+
+install react hooks forms and zod 
+
+npm i zod 
+npm i react-hook-form
+
+in order connect react hook form to zod we need to install a library that contains connector bw both of these libraries
+
+ie. @hookform/resolvers
+
+how create hooks form or zed form
+1) import {Z} from 'zed;
+2) define form schema 
+    var schema = z.object({
+        firstName:z.string().min(2).max(10) // it should be string type with min 2 chars and max 10
+        email :z.string().email() // check if email using regex 
+        age:z.number().min(18).max(60) // min age should be 18 to create a
+        password:z.number().min(5).max(10)
+        connfirmPassword:z.number.min(5).ax(10) // validate password and confirmpasswors is equal using refine
+    }) //form schema strucure 
+    .refine((data)=>data.password === data.connfirmPassword,{// if doent match 
+        message:"password is incorrect", // pass message and where to show it 
+        path:[connfirmPassword"]// where the error to show on confirm password field 
+    })
+
+how to add typing here  using zodType 
+interface Iprops{
+    firstName:string,
+    email:string,
+    password:number,
+    connfirmPassword:number
+}
+
+let schema:zodType<Iprops> = z.object{}
+
+now that u have created schema how to add this to form 
+import use form from react hook 
+import {zodResolver} from zod
+
+const {register,handleSubmit} =useForm<Iprops>({resolver: zodResolver(it accepts schemas)})// return fn
+how do we tell our form 
+
+    const {register,handleSubmit} =useForm<Iprops>({resolver:zodResolver(createSchema)})
+/handle submit function checks validations first when u submit the form if evrything success it calls
+
+
+what is trigger - Trigger validation across the form and return false if validation failes else true.
+
+control - This object contains methods for registering components into React Hook Form.(Take control of the form)
+
+setValue - Update field value 
+
+
+say u create a chema 
+
+----------type infer------------------
+const schema = z.object({
+    termina:string,
+    modeOfTransport:string
+})
+usually u will a type to this u can directly get its type like how we create interface 
+interface Iprops{
+    terminal:string,
+    modeOfTransport:syroing
+}
+
+let resultIstypeLikeInterface Iprops = z.input<typeof schema>
+
+--------------------------------------------------
+
+
+
+
+
+
+

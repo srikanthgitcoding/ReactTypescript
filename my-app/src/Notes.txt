@@ -1,0 +1,5 @@
+set up backend from react using json -server
+1) npm i json-server
+2) create db.json file 
+3) in package.json in script section, add-"server-json": "json-server --watch db.json --port 4444"
+4) 

@@ -1,0 +1,168 @@
+1) jest vs React Test library
+
+jest - js testing framework 
+
+jest is a test runner that finds tests, runs tests, determines  weather the test passed or failed 
+and reports it back in a human readable format
+
+RTL -js testing utility that provides virtual dom for testing react components 
+react testing library provides virtual dom which we can use to interact with and verify 
+the bhaviour of react component 
+
+
+the core library is called dom testing librbry  and 
+RTL is simply a wrapper around the core library to test react applications in easier way 
+
+types of test :
+--------------
+1) unit test -   tetsing components classes
+2) integration test -
+3) End 2 end tests - entire application (and take time) it resemble how a user does the testing
+
+
+react test file 
+----------------
+
+file name start with APP.test.jsx/tsx 
+2) test("test",()=>{ // test method comes with create react app it is global method hence no need to import
+    render<Greet/> // render greet component to dom 
+    const text = screen.getTextBy(hello/i) - i indicated ignore case sentive
+    expected(text).toBeinDocument // 
+u can use "it" as well
+test.skip("to skip this test only in this file it doent effect other files") 
+test.only("excute only this test only this file it doent effect other files")
+it("filename",()=>{
+    tests here
+})
+
+xit("to exclude tests",()=>{
+    tests here
+})
+ 
+})
+
+
+Test driven Developement (TDD) approach 
+--------------------
+test driven devlopement is a software devlopement process where u write  tests before writing 
+the software code 
+once u have written the tests, u write code to ensure tests pass 
+this process involves 3 phases 
+
+1) create tests that verifies functionality of a specific feature (tests are bound to failu here)
+2) write softwae code that will run tests successfully when re-executed
+3) refactor the code for optimization while esnuring the tests continue to pass 
+Also called as red green testing as all tests go from red failed state to green passed state
+4) 
+
+what is jest watch mode?
+------------------------
+
+watch mode is an option that we can pass to jest asking to watch
+files that have changed since the last commit and exute tests related to those changed files only 
+this is an optimization designed to make your test run fast regardless of how many tests u have 
+
+wheneveer u make any file changes and run jest it runs tests against the changed file not all changed files
+say u have not changed anything in tests files (nothing to commit) now run jest it asks options to
+run all or single file
+
+Filtering tests:
+--------
+how to filter tests picked up by jest 
+how many u can run tests1) run all or run single orrun changed or run failed or run by file name or run by test name
+
+in test.tsx file - test.only - runs only that test test.skip to test skip 
+
+group test:
+-----------
+
+describe method to group all your tests 
+describe accepts 2 args(groupname, function which contaisn tests)
+
+we can have nested describes
+describe.skip or describe.only 
+
+Observation while running test:
+------------------------------
+
+1) test suits (sueet)- which means the number of files .test.tsx number 
+2) 
+
+FileName conventions:jest looks for any of the following conventions
+---------------------
+1) files with test.js or test.tsx siffix 
+2) files with spec.js or spec.tsx suffic
+3) files with .js or .tsx suffix in __tests__ folders 
+4) recommendeantion is to alwasy to put  your tests next to the code  they r tesing so that relative imports r shorter
+
+
+code coverage:
+-------------
+
+is a metric to understand how much ur sw code is  tested
+
+statement coverage - how many staments are executed in code 
+branches covergae - hoe many of the branches of the control structure (if statement for instance)
+                        has been executed 
+function covergae - hoe many of the function defined are called 
+line covergae - hoe many line of source code has been tested 
+
+but how obtain code covergae report -
+in package.json under scripts section add an object 
+covergae :{
+    npm test --covergae --watchAll - this give all folder files 
+    but if u want to resteict to component folder
+    npm tett --covergae --watchAll --collectCoverageFrom="src/components/**/*.{ts/tsx}"  - 
+    - this run covergae for components folder
+    yarn test --covergae
+}
+this is seperate bcz covergae takes time so u dont want that as part of tesing 
+now run - npm run test -- --covergae
+
+what to test:
+-------------
+1) test component renders
+2) test component renders with props
+3) test component renders with differnt states (say u have a navbar should render when user logged in and not render when user logged out)
+4) test component react to events(onclicn button)
+
+what not to test:
+-----------------
+1) implementation details
+2) third party code(test code that u have written say ur using material UI u dont have to test button component)
+3) code that is not important in a user point of u 
+
+RTL Queries
+------------
+core concepts
+ queries - r methods theat tesing library provides to find elements on the page 
+ to find a single eleemnt on page - getBY.. queryBy.. findBy.. 
+ (getBY Role getBy LableText .....)
+ to find mutiple elemts on the page - getAllBy.. ,queryAllBy.. ,findAllBy..
+ the 2 dots are sufix it can be one of role,labeltext,placeholdertext, text, display value,so on
+1) render component (render(method add component here))
+2) find an leement rendered by a component 
+3) assert against the eleemnt found in step2 whihc will pass or fail the test -(expect())
+
+getBy class of queries return the matching node for q query , and throe a descriptive error if
+no elements match or if more than one match found 
+get by role(button elemnts hav ebutton rolw, radio has radio role, checkobrole input role link role)
+
+the role of input type="text" and textarea are same which is "textbox"
+
+when u have both <input type="text"> and <textarea> wrap the elemtns with lable and give the lable text as the ref in getByRole object
+
+<Lable htmlFor="Input text*">Input text<Lable><input id="Input text*"> //getByRole({name:"Input text"})
+<Lable> text area<Lable><textarea>//getByRole({name:"text area"})
+
+Heading roles - h1(level:1) h2(level:2)
+
+getByLableText - getByLableText eill search for the label that matches the given text , 
+then find the element that is assosiated with that label.
+this is alternative method for getBYRole("textbox") - however in getBYRole u need a label with a prop htmlProp and id to input
+getBYLableText not required htmlFor- simply wrap input with Lable(getBYLableText("label text goes here"))
+getByPlaceholderText - getby placeholder text finds the first form control descendant whose visible text matches
+
+RUN CODE COVERGAE:
+npm run test -- --covergae 
+run tests - npm run test
